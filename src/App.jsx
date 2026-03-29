@@ -1,7 +1,7 @@
-import AppRouter from './router/AppRouter'
+import EjemploComponente from './components/EjemploComponente'
 
 function App() {
-  return <AppRouter />
+  return <EjemploComponente />
 }
 
 export default App
