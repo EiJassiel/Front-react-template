@@ -1,167 +1,212 @@
-# Front React Template
+# React Template with Bun
 
-Plantilla base para desarrollar aplicaciones frontend con React, Vite y JSX. El proyecto está organizado para servir como punto de partida real: mantiene un ejemplo funcional, separa responsabilidades por carpetas y deja preparada una configuración simple de variables de entorno.
+Plantilla base para proyectos frontend con React y Vite, preparada para trabajar con Bun como gestor principal de dependencias y scripts. El repositorio deja una estructura clara para crecer por capas y un componente de ejemplo ya conectado para validar el flujo desde el primer arranque.
 
-## Objetivo
+## Resumen
 
-Esta plantilla busca ofrecer una base limpia para iniciar proyectos frontend sin depender de TypeScript. Incluye una estructura pensada para escalar, un ejemplo visual ya conectado y una documentación clara para que pueda subirse a GitHub como repositorio plantilla.
+- Base: React 19 + Vite 8
+- Lenguaje: JavaScript con JSX
+- Gestor de paquetes: Bun
+- Linter: ESLint
+- Estado actual: plantilla funcional con componente de ejemplo renderizado desde `src/App.jsx`
 
-## Tecnologías
+## Stack
 
-- React 19
-- Vite 8
-- JavaScript con JSX
-- ESLint
+| Capa | Herramienta | Uso |
+| --- | --- | --- |
+| UI | React 19 | Construccion de componentes |
+| Bundler | Vite 8 | Desarrollo y build de produccion |
+| Runtime / Package Manager | Bun | Instalacion de dependencias y ejecucion de scripts |
+| Calidad | ESLint | Validacion basica del codigo |
 
 ## Requisitos
 
-- Node.js 20 o superior recomendado
-- npm
+- Bun instalado en el equipo
+- Node.js compatible con el ecosistema actual de Vite y React
 
-## Instalación
-
-```bash
-npm install
-```
-
-## Ejecución en desarrollo
+Verifica Bun con:
 
 ```bash
-npm run dev
+bun --version
 ```
 
-En Windows PowerShell puede aparecer un bloqueo por `ExecutionPolicy` al usar `npm`. Si eso ocurre, usa:
+## Inicio Rapido
 
-```powershell
-npm.cmd run dev
+Instalar dependencias:
+
+```bash
+bun install
 ```
 
-## Scripts disponibles
+Levantar entorno de desarrollo:
 
-- `npm run dev`: inicia el servidor de desarrollo con Vite.
-- `npm run build`: genera el build de producción.
-- `npm run preview`: sirve localmente el build generado.
-- `npm run lint`: ejecuta ESLint sobre el código del proyecto.
+```bash
+bun run dev
+```
 
-## Estructura del proyecto
+Generar build de produccion:
+
+```bash
+bun run build
+```
+
+Previsualizar la build generada:
+
+```bash
+bun run preview
+```
+
+Ejecutar lint:
+
+```bash
+bun run lint
+```
+
+## Scripts Disponibles
+
+| Script | Descripcion |
+| --- | --- |
+| `bun run dev` | Inicia el servidor de desarrollo con Vite |
+| `bun run build` | Genera la salida de produccion en `dist/` |
+| `bun run preview` | Sirve localmente la build producida |
+| `bun run lint` | Ejecuta ESLint sobre el proyecto |
+
+## Estructura del Proyecto
 
 ```text
-src/
-  assets/
-  components/
-  config/
-  hooks/
-  layouts/
-  pages/
-  router/
-  services/
-  styles/
-  types/
-  utils/
-  App.jsx
-  main.jsx
-public/
-  favicon.svg
-  icons.svg
-.env.example
-eslint.config.js
-index.html
-package.json
-vite.config.js
+react-plantilla/
+|-- public/
+|-- src/
+|   |-- assets/
+|   |-- components/
+|   |   |-- EjemploComponente.jsx
+|   |   |-- HeroDisplay.jsx
+|   |   |-- LinkPill.jsx
+|   |   `-- ResourcePanel.jsx
+|   |-- config/
+|   |-- hooks/
+|   |-- layouts/
+|   |-- pages/
+|   |-- router/
+|   |-- services/
+|   |-- styles/
+|   |   |-- EjemploComponente.css
+|   |   |-- global.css
+|   |   `-- home.css
+|   |-- types/
+|   |-- utils/
+|   |-- App.jsx
+|   |-- index.css
+|   `-- main.jsx
+|-- .env.example
+|-- bun.lock
+|-- eslint.config.js
+|-- index.html
+|-- package.json
+`-- vite.config.js
 ```
 
-## Descripción de carpetas
+## Organizacion por Carpetas
 
-- `src/assets`: imágenes, logos y recursos estáticos importados desde la aplicación.
-- `src/components`: componentes reutilizables de interfaz.
-- `src/config`: configuración central del proyecto, como lectura de variables de entorno.
-- `src/hooks`: hooks personalizados.
-- `src/layouts`: layouts compartidos entre páginas.
-- `src/pages`: vistas principales de la aplicación.
-- `src/router`: punto central desde donde se define qué página renderizar.
-- `src/services`: datos de ejemplo, integraciones o lógica de acceso a servicios externos.
-- `src/styles`: estilos globales y estilos por pantalla o módulo.
-- `src/types`: tipado opcional con JSDoc para mejorar autocompletado y mantenimiento.
-- `src/utils`: funciones utilitarias reutilizables.
+| Ruta | Responsabilidad |
+| --- | --- |
+| `src/assets` | Recursos estaticos importados desde la aplicacion |
+| `src/components` | Componentes reutilizables de interfaz |
+| `src/config` | Lectura de configuracion y variables de entorno |
+| `src/hooks` | Hooks personalizados |
+| `src/layouts` | Estructuras compartidas entre vistas |
+| `src/pages` | Pantallas o vistas principales |
+| `src/router` | Punto de entrada del flujo de navegacion |
+| `src/services` | Datos base, integraciones o acceso a servicios |
+| `src/styles` | Estilos globales y estilos por modulo |
+| `src/types` | Tipado opcional con JSDoc y contratos simples |
+| `src/utils` | Helpers y funciones utilitarias |
 
-## Flujo actual de la aplicación
+## Flujo de Arranque
 
-El arranque principal ocurre en `src/main.jsx`. Ese archivo monta `src/App.jsx`, que delega en `src/router/AppRouter.jsx`. Actualmente el router renderiza `src/pages/HomePage.jsx`, donde vive el ejemplo principal de la plantilla.
+El flujo principal del proyecto es directo:
 
-La página de inicio utiliza:
+1. `src/main.jsx` monta la aplicacion en el DOM.
+2. `src/App.jsx` define el punto de entrada de la UI.
+3. Actualmente `src/App.jsx` renderiza `src/components/EjemploComponente.jsx`.
 
-- `src/components/HeroDisplay.jsx` para la parte visual superior.
-- `src/components/ResourcePanel.jsx` y `src/components/LinkPill.jsx` para los bloques de enlaces.
-- `src/hooks/useCounter.js` para el contador del ejemplo.
-- `src/services/templateData.js` para centralizar los datos de los paneles.
-- `src/config/env.js` para leer variables desde `import.meta.env`.
+Esto deja una base simple para empezar a construir sin depender de una configuracion adicional.
 
-## Variables de entorno
+## Componente de Ejemplo
 
-El proyecto usa variables con prefijo `VITE_`, que es el formato requerido por Vite para exponer valores al frontend.
+El componente de ejemplo existe para validar que la plantilla esta funcionando correctamente desde el primer momento. Incluye:
 
-Archivo de ejemplo:
+- un contador
+- un campo de texto controlado
+- un cambio de estado activo/inactivo
+- estilos propios en `src/styles/EjemploComponente.css`
+
+Si vas a convertir esta plantilla en un proyecto real, normalmente el siguiente paso es reemplazar ese componente por tu pagina inicial o reenrutar `src/App.jsx` hacia tu estructura de paginas.
+
+## Variables de Entorno
+
+Vite expone en frontend unicamente variables con prefijo `VITE_`. El repositorio incluye un archivo de referencia:
+
+- `.env.example`
+
+Ejemplo:
 
 ```env
 VITE_APP_NAME=Front React Template
-VITE_APP_DESCRIPTION=Plantilla base para proyectos frontend con React, Vite y JSX.
+VITE_APP_DESCRIPTION=Plantilla base para proyectos frontend con React y Vite.
 VITE_DOCS_URL=https://react.dev/
 ```
 
-## Archivos de entorno incluidos
+Uso recomendado:
 
-- `.env.example`: archivo de referencia para compartir en el repositorio.
-- `.env`: archivo local para desarrollo.
+1. Crear un archivo `.env` local a partir de `.env.example`.
+2. Mantener secretos fuera del repositorio.
+3. Reiniciar el servidor de desarrollo cuando cambien variables que no se reflejen automaticamente.
 
-## Variables incluidas por defecto
+## Bun como Fuente de Verdad
 
-- `VITE_APP_NAME`: nombre visible de la aplicación en la portada del ejemplo.
-- `VITE_APP_DESCRIPTION`: texto descriptivo que aparece debajo del título.
-- `VITE_DOCS_URL`: enlace configurable para el botón principal de documentación.
+Este proyecto esta orientado a Bun. Por consistencia:
 
-## Cómo cambiar la configuración
+- usa `bun install` para instalar dependencias
+- usa `bun run ...` para ejecutar scripts
+- conserva `bun.lock` como lockfile principal
 
-1. Copia `.env.example` como `.env` si todavía no existe.
-2. Modifica los valores `VITE_...` según tu proyecto.
-3. Reinicia el servidor si algún valor no se refleja automáticamente.
+Si aparece un `package-lock.json`, significa que en algun momento se corrio `npm install`. En ese caso, lo recomendable es eliminar ese archivo para no mezclar gestores.
 
-## Personalización recomendada
+## Build y Carpeta `dist`
 
-Para convertir esta plantilla en un proyecto real, normalmente querrás hacer estos cambios:
-
-1. Reemplazar logos e imágenes de `src/assets`.
-2. Editar la página inicial en `src/pages/HomePage.jsx`.
-3. Crear nuevas páginas dentro de `src/pages`.
-4. Extender el router desde `src/router/AppRouter.jsx`.
-5. Mover llamadas HTTP, mocks o configuración externa a `src/services`.
-6. Definir helpers comunes en `src/utils`.
-
-## Convenciones del proyecto
-
-- El proyecto usa `JSX`, no TypeScript.
-- Los nombres de variables de entorno deben empezar por `VITE_`.
-- La estructura está pensada para crecer sin mezclar lógica, estilos y vistas en un solo archivo.
-- `src/types` se mantiene para tipado opcional con JSDoc, no para archivos `.ts`.
-
-## Publicación como plantilla en GitHub
-
-Si vas a usar este repositorio como plantilla:
-
-1. Mantén `.env.example` con valores seguros y genéricos.
-2. No subas `.env` al repositorio.
-3. Ajusta este `README.md` con el nombre final del proyecto.
-4. Reemplaza el contenido de ejemplo por la identidad visual de tu equipo o producto.
-
-## Validación recomendada antes de publicar
+Cuando ejecutas:
 
 ```bash
-npm run lint
-npm run build
+bun run build
 ```
 
-En PowerShell, si `npm` está bloqueado:
+Vite genera la carpeta `dist/`, que contiene la salida lista para despliegue. Piensala como el artefacto final compilado del frontend:
 
-```powershell
-npm.cmd run lint
-npm.cmd run build
+- HTML final
+- bundles de JavaScript
+- CSS procesado
+- assets optimizados
+
+`src/` es el codigo fuente; `dist/` es el resultado listo para publicar.
+
+## Recomendaciones para Extender la Plantilla
+
+1. Reemplazar `EjemploComponente.jsx` por tu flujo real.
+2. Definir paginas en `src/pages`.
+3. Mover datos o integraciones a `src/services`.
+4. Centralizar constantes y configuracion en `src/config`.
+5. Mantener estilos compartidos en `src/styles`.
+
+## Validacion Recomendada
+
+Antes de publicar cambios:
+
+```bash
+bun run lint
+bun run build
 ```
+
+## Estado del Repositorio
+
+La plantilla fue simplificada para trabajar con una sola aplicacion en la raiz del proyecto, sin carpetas duplicadas ni repositorios anidados. Eso hace que Git, Bun y el editor trabajen sobre una unica fuente de verdad.
