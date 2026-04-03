@@ -1,13 +1,14 @@
 {
-  "name": "front-end-react",
+  "name": "plantilla-react",
+  "description": "Plantilla limpia y funcional con React",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --configLoader native",
-    "build": "vite build --configLoader native",
+    "dev": "vite",
+    "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview --configLoader native"
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^19.2.4",

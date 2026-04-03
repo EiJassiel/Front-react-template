@@ -1,21 +1,21 @@
-# Front React Template
+Plantilla React
 
-Plantilla base para desarrollar aplicaciones frontend con React, Vite y JSX. El proyecto está organizado para servir como punto de partida real: mantiene un ejemplo funcional, separa responsabilidades por carpetas y deja preparada una configuración simple de variables de entorno.
+Plantilla moderna, limpia y funcional para desarrollar aplicaciones frontend con React y JavaScript. Organizada con carpetas lógicas, lista para escalar y personalizar.
 
 ## Objetivo
 
-Esta plantilla busca ofrecer una base limpia para iniciar proyectos frontend sin depender de TypeScript. Incluye una estructura pensada para escalar, un ejemplo visual ya conectado y una documentación clara para que pueda subirse a GitHub como repositorio plantilla.
+Ofrecer una base sólida para iniciar proyectos React sin complejidades innecesarias. Estructura clara por responsabilidades, configuración simple y documentación directa.
 
 ## Tecnologías
 
 - React 19
-- Vite 8
+- Vite (generador de build)
 - JavaScript con JSX
 - ESLint
 
 ## Requisitos
 
-- Node.js 20 o superior recomendado
+- Node.js 18+ recomendado
 - npm
 
 ## Instalación
@@ -24,144 +24,128 @@ Esta plantilla busca ofrecer una base limpia para iniciar proyectos frontend sin
 npm install
 ```
 
-## Ejecución en desarrollo
+## Inicio Rápido 🚀
 
-```bash
-npm run dev
-```
+1. **Clonar o usar como plantilla**:
+   ```bash
+   git clone <repository-url>
+   cd FrontReactTemplate
+   ```
 
-En Windows PowerShell puede aparecer un bloqueo por `ExecutionPolicy` al usar `npm`. Si eso ocurre, usa:
+2. **Instalar dependencias**:
+   ```bash
+   npm install
+   ```
 
-```powershell
-npm.cmd run dev
-```
+3. **Ejecutar en desarrollo**:
+   ```bash
+   npm run dev
+   ```
+   
+   En Windows PowerShell:
+   ```powershell
+   npm.cmd run dev
+   ```
+
+4. **Accede a** `http://localhost:5173`
+
+5. **Personaliza** tu proyecto editando archivos en `src/`
 
 ## Scripts disponibles
 
-- `npm run dev`: inicia el servidor de desarrollo con Vite.
-- `npm run build`: genera el build de producción.
-- `npm run preview`: sirve localmente el build generado.
-- `npm run lint`: ejecuta ESLint sobre el código del proyecto.
+- `npm run dev`: servidor de desarrollo
+- `npm run build`: build de producción
+- `npm run preview`: vista previa del build
+- `npm run lint`: chequeo de código con ESLint
 
-## Estructura del proyecto
+## Estructura
 
-```text
+## Estructura
+
+```
 src/
-  assets/
-  components/
-  config/
-  hooks/
-  layouts/
-  pages/
-  router/
-  services/
-  styles/
-  types/
-  utils/
+  assets/          Imágenes y recursos estáticos
+  components/      Componentes reutilizables
+  config/          Configuración centralizada
+  hooks/           Hooks personalizados
+  layouts/         Layouts compartidos
+  pages/           Páginas principales
+  services/        Lógica de datos/APIs
+  styles/          Estilos CSS
+  types/           Tipado con JSDoc
+  utils/           Funciones auxiliares
   App.jsx
   main.jsx
-public/
-  favicon.svg
-  icons.svg
-.env.example
-eslint.config.js
-index.html
+public/            Archivos públicos estáticos
+.env.example       Variables de entorno de ejemplo
 package.json
 vite.config.js
 ```
 
-## Descripción de carpetas
+## Configuración
 
-- `src/assets`: imágenes, logos y recursos estáticos importados desde la aplicación.
-- `src/components`: componentes reutilizables de interfaz.
-- `src/config`: configuración central del proyecto, como lectura de variables de entorno.
-- `src/hooks`: hooks personalizados.
-- `src/layouts`: layouts compartidos entre páginas.
-- `src/pages`: vistas principales de la aplicación.
-- `src/router`: punto central desde donde se define qué página renderizar.
-- `src/services`: datos de ejemplo, integraciones o lógica de acceso a servicios externos.
-- `src/styles`: estilos globales y estilos por pantalla o módulo.
-- `src/types`: tipado opcional con JSDoc para mejorar autocompletado y mantenimiento.
-- `src/utils`: funciones utilitarias reutilizables.
+### Variables de Entorno
 
-## Flujo actual de la aplicación
+1. Copia `.env.example` a `.env`:
+   ```bash
+   cp .env.example .env
+   ```
 
-El arranque principal ocurre en `src/main.jsx`. Ese archivo monta `src/App.jsx`, que delega en `src/router/AppRouter.jsx`. Actualmente el router renderiza `src/pages/HomePage.jsx`, donde vive el ejemplo principal de la plantilla.
+2. Editala con tus valores:
+   ```env
+   VITE_APP_NAME=Mi Aplicación
+   VITE_APP_DESCRIPTION=Descripción de tu app
+   ```
 
-La página de inicio utiliza:
+3. Las variables se cargan automáticamente en `src/config/env.js`
 
-- `src/components/HeroDisplay.jsx` para la parte visual superior.
-- `src/components/ResourcePanel.jsx` y `src/components/LinkPill.jsx` para los bloques de enlaces.
-- `src/hooks/useCounter.js` para el contador del ejemplo.
-- `src/services/templateData.js` para centralizar los datos de los paneles.
-- `src/config/env.js` para leer variables desde `import.meta.env`.
+### Cambiar nombre del proyecto
 
-## Variables de entorno
-
-El proyecto usa variables con prefijo `VITE_`, que es el formato requerido por Vite para exponer valores al frontend.
-
-Archivo de ejemplo:
-
-```env
-VITE_APP_NAME=Front React Template
-VITE_APP_DESCRIPTION=Plantilla base para proyectos frontend con React, Vite y JSX.
-VITE_DOCS_URL=https://react.dev/
+Edita en `package.json`:
+```json
+{
+  "name": "mi-aplicacion-react",
+  "description": "Descripción de tu proyecto"
+}
 ```
 
-## Archivos de entorno incluidos
+## Stack Recomendado
 
-- `.env.example`: archivo de referencia para compartir en el repositorio.
-- `.env`: archivo local para desarrollo.
+Tu **última fuente de verdad** es `src/pages/HomePage.jsx`
 
-## Variables incluidas por defecto
+Para agregar funcionalidades:
 
-- `VITE_APP_NAME`: nombre visible de la aplicación en la portada del ejemplo.
-- `VITE_APP_DESCRIPTION`: texto descriptivo que aparece debajo del título.
-- `VITE_DOCS_URL`: enlace configurable para el botón principal de documentación.
+- **Múltiples páginas**: Instala `react-router-dom` y configura en `src/App.jsx`
+- **Llamadas HTTP**: Usa `fetch()` en `src/services/`
+- **Estado global**: Considera Context API o una librería ligera
+- **Componentes**: Crea en `src/components/`, reutiliza en `src/pages/`
+- **Estilos**: Agrega en `src/styles/` o CSS modules
 
-## Cómo cambiar la configuración
+## Personalizar
 
-1. Copia `.env.example` como `.env` si todavía no existe.
-2. Modifica los valores `VITE_...` según tu proyecto.
-3. Reinicia el servidor si algún valor no se refleja automáticamente.
+Para que sea **tu proyecto**:
 
-## Personalización recomendada
+1. Reemplaza `public/favicon.svg` con tu favicon
+2. Actualiza `index.html` con tu título
+3. Modifica `src/pages/HomePage.jsx` con tu contenido
+4. Edita `.env` con tus variables
+5. Limpia carpetas innecesarias (ej: `src/hooks/` si no los usas)
 
-Para convertir esta plantilla en un proyecto real, normalmente querrás hacer estos cambios:
-
-1. Reemplazar logos e imágenes de `src/assets`.
-2. Editar la página inicial en `src/pages/HomePage.jsx`.
-3. Crear nuevas páginas dentro de `src/pages`.
-4. Extender el router desde `src/router/AppRouter.jsx`.
-5. Mover llamadas HTTP, mocks o configuración externa a `src/services`.
-6. Definir helpers comunes en `src/utils`.
-
-## Convenciones del proyecto
-
-- El proyecto usa `JSX`, no TypeScript.
-- Los nombres de variables de entorno deben empezar por `VITE_`.
-- La estructura está pensada para crecer sin mezclar lógica, estilos y vistas en un solo archivo.
-- `src/types` se mantiene para tipado opcional con JSDoc, no para archivos `.ts`.
-
-## Publicación como plantilla en GitHub
-
-Si vas a usar este repositorio como plantilla:
-
-1. Mantén `.env.example` con valores seguros y genéricos.
-2. No subas `.env` al repositorio.
-3. Ajusta este `README.md` con el nombre final del proyecto.
-4. Reemplaza el contenido de ejemplo por la identidad visual de tu equipo o producto.
-
-## Validación recomendada antes de publicar
+## Desplegar
 
 ```bash
-npm run lint
 npm run build
 ```
 
-En PowerShell, si `npm` está bloqueado:
+Genera una carpeta `dist/` lista para:
+- Netlify
+- Vercel
+- GitHub Pages
+- Cualquier servidor estatico
 
-```powershell
-npm.cmd run lint
-npm.cmd run build
-```
+## Notas
+
+- `src/router/` está disponible como referencia si necesitas React Router
+- No requiere TypeScript, pero JSDoc opcionales están disponibles
+- ESLint incluido para mantener código consistente
+- Compatible con npm, yarn, bun, pnpm
