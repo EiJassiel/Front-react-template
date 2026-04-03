@@ -1,0 +1,49 @@
+.DivComponentePrueba {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 32px 20px;
+  font-family: var(--sans);
+}
+
+.DivComponentePrueba img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.DivComponentePrueba h1 {
+  margin: 0;
+  font: 700 32px/1.2 var(--heading);
+  color: var(--text-h);
+}
+
+.DivComponentePrueba p {
+  color: var(--text);
+  font-size: 16px;
+}
+
+.DivComponentePrueba button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.DivComponentePrueba button:hover {
+  background-color: #304255;
+}
+
+.DivComponentePrueba input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: min(300px, 100%);
+}
