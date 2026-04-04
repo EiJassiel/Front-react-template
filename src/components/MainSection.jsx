@@ -2,15 +2,9 @@ import { useState } from 'react'
 import env from '../config/env'
 
 function MainSection() {
-  const [isDarkMode, setIsDarkMode] = useState(false)
   const [message, setMessage] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [email, setEmail] = useState('')
-
-  const handleToggleTheme = () => {
-    setIsDarkMode(!isDarkMode)
-    document.body.classList.toggle('dark-mode')
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -31,15 +25,7 @@ function MainSection() {
   }
 
   return (
-    <div className={`hero ${isDarkMode ? 'dark' : 'light'}`}>
-      <button 
-        className="theme-toggle" 
-        onClick={handleToggleTheme}
-        title="Cambiar tema"
-      >
-        {isDarkMode ? '☀️' : '🌙'}
-      </button>
-
+    <div className="hero">
       <div className="hero-content">
         <h2 className="hero-title">Bienvenido a tu Plantilla React</h2>
         <p className="hero-subtitle">Ágil, moderna y lista para personalizar</p>
@@ -52,7 +38,6 @@ function MainSection() {
             Abrir en Codespaces
           </button>
         </div>
-
 
         {message && (
           <p className={`message ${submitted ? 'success' : 'info'}`}>
