@@ -43,11 +43,6 @@ bun run dev
 
 Ve a `http://localhost:5173` para ver la aplicación.
 
-## Desarrollo
-
-```bash
-bun run dev
-```
 
 ## Scripts disponibles
 
