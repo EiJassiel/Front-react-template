@@ -116,7 +116,7 @@ Para convertir esta plantilla en un proyecto real, normalmente querrás hacer es
 2. Editar la página inicial en `src/pages/HomePage.jsx`
 3. Crear nuevas páginas dentro de `src/pages`
 4. Agregar nuevos componentes en `src/components`
-5. Definir helpers comunes en `src/utils`
+5. Crear carpeta `src/utils/` para funciones utilitarias si es necesario
 
 ## Convenciones del proyecto
 
