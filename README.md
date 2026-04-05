@@ -45,11 +45,7 @@ front-react-template/
 │   └── favicon.svg
 ├── src/
 │   ├── components/
-│   │   ├── SideBar.jsx
-│   │   ├── MainSection.jsx
-│   │   ├── Header.jsx
-│   │   ├── Foooter.jsx
-│   │   └── EjemploComponente.jsx
+│   │   └── MainSection.jsx
 │   ├── config/
 │   │   └── env.js
 │   ├── layouts/
@@ -58,10 +54,7 @@ front-react-template/
 │   │   └── HomePage.jsx
 │   ├── styles/
 │   │   ├── global.css
-│   │   ├── home.css
-│   │   └── EjemploComponente.css
-│   ├── utils/
-│   │   └── navigation.js
+│   │   └── home.css
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── index.css
@@ -81,7 +74,6 @@ front-react-template/
 - `src/layouts`: layouts compartidos entre páginas
 - `src/pages`: vistas principales de la aplicación
 - `src/styles`: estilos globales y estilos por componente
-- `src/utils`: funciones utilitarias reutilizables
 - `public`: recursos estáticos públicos como favicon
 
 ## Flujo de la aplicación
