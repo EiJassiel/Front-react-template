@@ -20,9 +20,28 @@ Esta plantilla busca ofrecer una base limpia para iniciar proyectos frontend sin
 
 ## Instalación
 
+### Clona el repositorio o usa esta plantilla
+
+```bash
+git clone <url-del-repositorio>
+cd <nombre-del-proyecto>
+```
+
+### Instala las dependencias
+
 ```bash
 bun install
 ```
+
+### Inicia el servidor de desarrollo
+
+```bash
+bun run dev
+```
+
+### Abre tu navegador
+
+Ve a `http://localhost:5173` para ver la aplicación.
 
 ## Desarrollo
 
