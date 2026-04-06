@@ -1,0 +1,117 @@
+.container {
+  padding: 0 clamp(1.25rem, 3vw, 3rem) 3rem;
+}
+
+.content {
+  max-width: 980px;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.eyebrow,
+.sectionLabel {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+}
+
+.sectionIntro {
+  max-width: 62ch;
+}
+
+.documentationStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.documentationSection {
+  scroll-margin-top: 6rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.activeSection {
+  border-color: var(--border-strong);
+  background: var(--surface-muted);
+}
+
+.documentationMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.itemTitle {
+  font-size: 1.45rem;
+}
+
+.documentation {
+  color: var(--text);
+}
+
+.documentation h2 {
+  margin: 0 0 0.85rem;
+  color: var(--text-h);
+}
+
+.documentation p,
+.documentation ul,
+.documentation ol,
+.documentation pre {
+  margin: 0 0 1rem;
+}
+
+.documentation ul,
+.documentation ol {
+  padding-left: 1.25rem;
+}
+
+.documentation li + li {
+  margin-top: 0.5rem;
+}
+
+.documentation pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--code-bg);
+}
+
+.documentation pre code {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.noContent {
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem 2rem;
+  }
+
+  .documentationSection {
+    padding: 1.15rem;
+    border-radius: 16px;
+  }
+}

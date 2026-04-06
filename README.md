@@ -1,17 +1,28 @@
 # Front React Template
 
-Plantilla base para desarrollar aplicaciones frontend con React, Vite y JSX. El proyecto está organizado para servir como punto de partida real: mantiene un ejemplo funcional, separa responsabilidades por carpetas y deja preparada una configuración simple de variables de entorno.
+Plantilla profesional para desarrollar aplicaciones frontend con React, Vite y JavaScript. Incluye un layout moderno con header fijo, sidebar de navegación, y una estructura escalable lista para producción.
 
 ## Objetivo
 
-Esta plantilla busca ofrecer una base limpia para iniciar proyectos frontend sin depender de TypeScript. Incluye una estructura pensada para escalar, un ejemplo visual ya conectado y una documentación clara para que pueda subirse a GitHub como repositorio plantilla.
+Ofrecer una base sólida y moderna para iniciar proyectos React sin TypeScript. Con componentes reutilizables, CSS Modules para estilos locales, y documentación integrada.
+
+## Características principales
+
+- ✅ **Header fijo** en la parte superior
+- ✅ **Sidebar desplegable** con navegación
+- ✅ **Layout responsivo** con CSS Grid
+- ✅ **CSS Modules** para estilos locales
+- ✅ **Tema claro/oscuro** automático
+- ✅ **Variables de entorno** integradas
+- ✅ **Mobile-first** responsive
 
 ## Tecnologías
 
-- React 19
-- Vite 8
-- JavaScript con JSX
-- ESLint
+- **React 19** - Librería de UI
+- **Vite 8** - Build tool rápido
+- **JavaScript/JSX** - Sin TypeScript
+- **CSS Modules** - Estilos aislados
+- **ESLint** - Linting
 
 ## Requisitos
 
@@ -98,50 +109,100 @@ La página de inicio utiliza:
 
 ## Variables de entorno
 
-El proyecto usa variables con prefijo `VITE_`, que es el formato requerido por Vite para exponer valores al frontend.
-
-Archivo de ejemplo:
+Archivo `.env` para desarrollo:
 
 ```env
 VITE_APP_NAME=Front React Template
-VITE_APP_DESCRIPTION=Plantilla base para proyectos frontend con React, Vite y JSX.
+VITE_APP_DESCRIPTION=Plantilla profesional con React y Vite
 VITE_DOCS_URL=https://react.dev/
+VITE_USE_TEMPLATE_URL=https://github.com/...
+VITE_CODESPACE_URL=https://github.dev/...
 ```
 
-## Archivos de entorno incluidos
+Acceso en componentes:
 
-- `.env.example`: archivo de referencia para compartir en el repositorio.
-- `.env`: archivo local para desarrollo.
+```javascript
+import env from '../config/env'
 
-## Variables incluidas por defecto
+console.log(env.appName)          // "Front React Template"
+console.log(env.docsUrl)         // "https://react.dev/"
+```
 
-- `VITE_APP_NAME`: nombre visible de la aplicación en la portada del ejemplo.
-- `VITE_APP_DESCRIPTION`: texto descriptivo que aparece debajo del título.
-- `VITE_DOCS_URL`: enlace configurable para el botón principal de documentación.
+## CSS Modules
 
-## Cómo cambiar la configuración
+Este proyecto usa **CSS Modules** para estilos locales sin conflictos:
 
-1. Copia `.env.example` como `.env` si todavía no existe.
-2. Modifica los valores `VITE_...` según tu proyecto.
-3. Reinicia el servidor si algún valor no se refleja automáticamente.
+```javascript
+// Header.jsx
+import styles from '../styles/Header.module.css'
 
-## Personalización recomendada
+<header className={styles.header}>
+  <h1 className={styles.title}>Título</h1>
+</header>
+```
 
-Para convertir esta plantilla en un proyecto real, normalmente querrás hacer estos cambios:
+Ventajas:
+- ✅ Estilos aislados por componente
+- ✅ Sin conflictos de nombres
+- ✅ Mantenibilidad mejorada
+- ✅ Fácil refactoring
 
-1. Reemplazar logos e imágenes de `src/assets`.
-2. Editar la página inicial en `src/pages/HomePage.jsx`.
-3. Crear nuevas páginas dentro de `src/pages`.
-4. Extender el router desde `src/router/AppRouter.jsx`.
-5. Mover llamadas HTTP, mocks o configuración externa a `src/services`.
-6. Definir helpers comunes en `src/utils`.
+## Build y despliegue
 
-## Convenciones del proyecto
+### Generar build de producción
 
-- El proyecto usa `JSX`, no TypeScript.
-- Los nombres de variables de entorno deben empezar por `VITE_`.
-- La estructura está pensada para crecer sin mezclar lógica, estilos y vistas en un solo archivo.
-- `src/types` se mantiene para tipado opcional con JSDoc, no para archivos `.ts`.
+```bash
+npm run build
+```
+
+Genera carpeta `dist/` lista para:
+- **Netlify**: Arrastra la carpeta a Netlify
+- **Vercel**: Conecta el repo (detecta automáticamente)
+- **GitHub Pages**: Sube contenido de `dist/`
+- **Servidor estático**: Sirve desde `dist/`
+
+### Preview local del build
+
+```bash
+npm run preview
+```
+
+## Validación antes de publicar
+
+```bash
+npm run lint
+npm run build
+```
+
+## Next steps - Extensión del proyecto
+
+### Agregar una nueva página
+
+```javascript
+// src/pages/MiPagina.jsx
+export default function MiPagina() {
+  return <div>Mi página</div>
+}
+```
+
+### Agregar un componente con estilos
+
+```javascript
+// src/components/MiComponente.jsx
+import styles from '../styles/MiComponente.module.css'
+
+export default function MiComponente() {
+  return <div className={styles.container}>...</div>
+}
+```
+
+## Convenciones
+
+- ✅ Componentes: `PascalCase`
+- ✅ Variables de entorno: `VITE_NOMBRE`
+- ✅ Estilos: `NombreComponente.module.css`
+- ✅ Imports absolutos preferidos donde sea posible
+- ✅ Una responsabilidad por componente
 
 ## Publicación como plantilla en GitHub
 

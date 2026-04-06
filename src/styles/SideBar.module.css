@@ -1,0 +1,97 @@
+.sideBar {
+  position: sticky;
+  top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: calc(100vh - 80px);
+  padding: 1.5rem 1rem;
+  overflow-y: auto;
+}
+
+.homeLink {
+  display: block;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface-muted);
+  text-decoration: none;
+  color: var(--text-h);
+  font-weight: 650;
+}
+
+.title {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.section {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.sectionBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.95rem 1rem;
+  border: 0;
+  border-radius: 16px;
+  background: transparent;
+  color: var(--text-h);
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sectionBtn:hover {
+  background: var(--surface-muted);
+}
+
+.arrow {
+  color: var(--accent);
+  transition: transform 0.2s ease;
+}
+
+.arrow.open {
+  transform: rotate(90deg);
+}
+
+.itemsList {
+  list-style: none;
+  margin: 0;
+  padding: 0 0.75rem 0.85rem;
+}
+
+.itemsList li + li {
+  margin-top: 0.35rem;
+}
+
+.link {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  text-align: left;
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.link:hover {
+  background: var(--accent-soft);
+  color: var(--text-h);
+}
