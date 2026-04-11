@@ -1,29 +1,6 @@
-import { useState } from 'react'
 import env from '../config/env'
 
 function MainSection() {
-  const [message, setMessage] = useState('')
-  const [submitted, setSubmitted] = useState(false)
-  const [email, setEmail] = useState('')
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (email.trim()) {
-      setSubmitted(true)
-      setMessage(`¡Gracias ${email}! Nos pondremos en contacto pronto.`)
-      setEmail('')
-      setTimeout(() => {
-        setSubmitted(false)
-        setMessage('')
-      }, 3000)
-    }
-  }
-
-  const handleExplore = () => {
-    setMessage('¡Comienza a explorar la plantilla!')
-    setTimeout(() => setMessage(''), 2000)
-  }
-
   return (
     <div className="hero">
       <div className="hero-content">
@@ -38,12 +15,6 @@ function MainSection() {
             Abrir en Codespaces
           </button>
         </div>
-
-        {message && (
-          <p className={`message ${submitted ? 'success' : 'info'}`}>
-            {message}
-          </p>
-        )}
       </div>
 
       <div className="hero-decoration">
