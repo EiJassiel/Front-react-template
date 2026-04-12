@@ -1,7 +1,7 @@
 # Front React Template
 
-Plantilla base para desarrollar aplicaciones frontend con React, Vite y Bun. El proyecto está organizado para servir como punto de partida profesional: mantiene un ejemplo funcional con tres ejemplos interactivos que demuestran conceptos básicos de React, separa responsabilidades por carpetas y deja preparada una configuración simple de variables de entorno.
-
+Plantilla base para desarrollar aplicaciones frontend con React, Vite y Bun. El proyecto está organizado para servir como punto de partida profesional: mantiene un ejemplo funcional con tres ejemplos interactivos que demuestran conceptos básicos de React, separa responsabilidades por carpetas y deja preparada una configuración simple de variables de entorno
+E
 ## Objetivo
 
 Esta plantilla busca ofrecer una base limpia para iniciar proyectos frontend sin depender de TypeScript. Incluye una estructura pensada para escalar, ejemplos visuales ya conectados y una documentación clara para que pueda subirse a GitHub como repositorio plantilla.
@@ -191,6 +191,14 @@ Si vas a usar este repositorio como plantilla:
 1. Mantén `.env.example` con valores seguros y genéricos
 2. No subas `.env` al repositorio (ya incluido en .gitignore)
 3. Ajusta este `README.md` con el nombre final del proyecto
+4. Reemplaza el contenido de ejemplo por la identidad visual de tu equipo o producto
+
+## Validación recomendada antes de publicar
+
+```bash
+bun run lint
+bun run build
+```e final del proyecto
 4. Reemplaza el contenido de ejemplo por la identidad visual de tu equipo o producto
 
 ## Validación recomendada antes de publicar
